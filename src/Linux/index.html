@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Fast Crypt</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <meta name="author" content="Koray USTUNDAG">
+    <!-- <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" /> -->
+</head>
+<body>
+    <div class="container" style="margin-top: 20px;">
+        <div class="mb-3">
+            <label for="txtPasswd" class="form-label">Password:</label>
+            <input type="password" class="form-control" id="txtPasswd">
+        </div>
+        <div class="mb-3">
+            <label for="txtData" class="form-label">Text / Encrypted Text:</label>
+            <textarea class="form-control" placeholder="Text / Encrypted Text:" id="txtData" style="height: 200px"></textarea>
+        </div>
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+            <button class="btn btn-primary me-md-2" type="button" id="btnDecrypt">Decrypt</button>
+            <button class="btn btn-primary" type="button" id="btnEncrypt">Encrypt</button>
+        </div>
+    </div>
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script>
+        const electron = require("electron");
+        const { ipcRenderer } = electron;
+
+        let btnEncrypt = document.querySelector("#btnEncrypt");
+        let btnDecrypt = document.querySelector("#btnDecrypt");
+        let valPass = document.querySelector("#txtPasswd");
+        let valData = document.querySelector("#txtData");
+
+        btnEncrypt.addEventListener("click", () => {
+            if (valPass.value == null || valPass.value == "") {
+                alert("Please set a password.");
+                return;
+            }
+
+            if (valData.value == null || valData.value == "") {
+                alert("I guess you forgot to enter the text to be encrypted.");
+                return;
+            }
+            const fly = [valPass.value,valData.value];
+            ipcRenderer.send("data", fly);
+            ipcRenderer.on('rply', (event, arg) => {
+                document.getElementById("txtData").value = arg;
+            });
+        });
+
+        btnDecrypt.addEventListener("click", () => {
+            const fly = [valPass.value,valData.value];
+            ipcRenderer.send("sdata", fly);
+            ipcRenderer.on('srply', (event, arg) => {
+                document.getElementById("txtData").value = arg;
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+{
+  "name": "fast-crypt",
+  "productName": "Fast Crypt",
+  "version": "1.0.0",
+  "description": "Fastly Encrypt and Decrypt Texts",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder build -l",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Koray Ustundag <mskorayustundag@gmail.com>",
+  "copyright": "Copyright © 2022 Koray Ustundag",
+  "license": "AGPLv3",
+  "homepage": "https://github.com/korayustundag/fast-crypt-linux",
+  "repository": "https://github.com/korayustundag/fast-crypt-linux",
+  "build": {
+    "appId": "com.korayustundag.fastcrypt",
+    "linux": {
+      "target": [
+        "zip",
+        "AppImage",
+        "snap",
+        "deb"
+      ]
+    },
+    "extraFiles": [
+      "Fast Crypt.desktop"
+    ]
+  },
+  "keywords": [
+    "Encrypt",
+    "Decrypt",
+    "Text",
+    "Fast"
+  ],
+  "devDependencies": {
+    "electron": "^20.0.1",
+    "electron-builder": "^23.3.3"
+  }
+}
