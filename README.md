@@ -1,6 +1,6 @@
 # Fast Crypt
 Fastly encrypt and decrypt your texts with AES (Advanced Encryption Standard).
-# Supported Platforms
+## Supported Platforms
 * Windows 10 | 11
 * Xbox Series S | X
 * Linux
