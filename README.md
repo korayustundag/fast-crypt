@@ -13,10 +13,6 @@ Fastly encrypt and decrypt your texts with AES (Advanced Encryption Standard).
 
 [![Download on the GitHub](https://raw.githubusercontent.com/korayustundag/fast-crypt/main/media/images/downloadmacos.svg )](https://github.com/korayustundag/fast-crypt/releases/download/v1.0.0/Fast_Crypt-1.0.0.dmg)
 
-## User guide for MacOS
-- Open Terminal
-- Type: `./fast-crypt`
-
 ## Manual Downloads
 - [![Download Win32 Setup](https://img.shields.io/badge/Windows-x86%20Setup-green )](https://github.com/korayustundag/fast-crypt/releases/download/v1.0.0/Fast-Crypt_Setup_x86.exe)
 - [![Download Win64 Setup](https://img.shields.io/badge/Windows-x64%20Setup-green )](https://github.com/korayustundag/fast-crypt/releases/download/v1.0.0/Fast-Crypt_Setup_x64.exe)
